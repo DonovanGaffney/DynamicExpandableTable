@@ -1,0 +1,16 @@
+
+
+<div style="margin: 2rem;">
+  <ng-container [ngSwitch]="valueType">
+    <div *ngSwitchCase="ValueType.Object">
+      <app-generate-from-object [object]="value" [autoExpand]="true"></app-generate-from-object>
+    </div>
+    <div *ngSwitchCase="ValueType.Array">
+      <app-generate-from-array [array]="value" [autoExpand]="true"></app-generate-from-array>
+    </div>
+    <div *ngSwitchDefault>
+      {{value}}
+    </div>
+  </ng-container>
+</div>
+

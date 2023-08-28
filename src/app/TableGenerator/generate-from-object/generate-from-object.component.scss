@@ -1,0 +1,29 @@
+table {
+  border-spacing: 0;
+  border: black solid 1px;
+
+  thead > tr > td {
+    font-weight: 600;
+    border-bottom: black solid 1px;
+  }
+
+  td {
+    padding: .8rem;
+  }
+
+  tr > td:not(:last-child) {
+    border-right: black solid 1px;
+  }
+}
+
+
+.expandHover {
+  all: unset;
+  color:blue;
+  font-weight: 600;
+}
+
+.expandHover:hover {
+  color:darkblue;
+  text-decoration: underline;
+}

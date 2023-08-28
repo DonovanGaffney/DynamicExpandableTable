@@ -1,0 +1,28 @@
+<ng-container *ngIf="!isExpanded">
+  <button class="expandHover" style="margin-bottom:3px;" (click)="onExpandToggle()">{{array.length}} Items</button>
+</ng-container>
+
+<ng-container *ngIf="isExpanded">
+  <table>
+    <thead>
+    <div style="text-align: center;">
+      <button class="expandHover" style="margin-bottom:3px;" (click)="onExpandToggle()">{{array.length}} Items</button>
+    </div>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of array">
+      <td>
+        <div [ngSwitch]="determineType(item)">
+          <div *ngSwitchCase="ValueType.Object">
+            <app-generate-from-object [object]="item" [name]="'Object'"></app-generate-from-object>
+          </div>
+          <div *ngSwitchCase="ValueType.Array">
+            <app-generate-from-array [array]="item" ></app-generate-from-array>
+          </div>
+          <div *ngSwitchCase="ValueType.Other">{{item}}</div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
